@@ -10,6 +10,14 @@ class Cube{
 	const MAX_VALUE = 1000000000;
 	const MAX_SIZE = 100;
 
+
+	/**
+	* .
+	* @param $size ( determina cuantas Operaciones va a tener el dicho test )
+	* 		 $size prepara un array 3D con la Funcion array_fill()
+	* @return void
+	*/
+
 	public function __construct($size, $value = 0){
 
 		if($size > self::MAX_SIZE){
@@ -58,7 +66,10 @@ class Cube{
 
 		$sum = 0;
 
-		// sumarize all elements in sub cube
+		# Suma de las variables
+		# la variable $sum va acumulando la suma!
+		# esa variable sera retornada a el controlador
+
 		for($i = $x1; $i <= $x2; $i++){
 
 			for($j = $y1; $j <= $y2; $j++){
@@ -75,14 +86,23 @@ class Cube{
 	/*
 	 * php index array begins at 0 but our first block is defined by the coordinate (1,1,1) so we need
 	 * calcule an offset
+	 * 
+	 * 
 	 */ 
 	private function calcule_offset($position){
 		return $position - 1;
 	}
 
 	/*
-	 * Validate if 1 <= x,y,z <= N 
-	 *
+	 * 
+	 * Validacion de verificar que los parametros no sobrepasen el
+	 * la restrinccion N tomando en cuenta: 
+
+		*	1 <= x1 <= x2 <= N 
+		*	1 <= y1 <= y2 <= N 
+		*	1 <= z1 <= z2 <= N 
+		*	1 <= x,y,z <= N 
+
 	 */
 	private function is_valid_coordinate($x, $y, $z){
 		return 	(1 <= $x) && ($x <= count($this->cube)) &&
