@@ -21,10 +21,10 @@ class CubeController extends Controller
     =            Section comment block            =
     =============================================*/
 
-    private function validate( $datos ){
+    private function validate__( $datos ){
 
-       return  Validator::make($datos->all(), [
-            'entrada' => 'required|entrada|min:1|max:255'
+       return  Validator::make($datos, [
+            'entrada' => 'required|integer|min:1|max:255'
         ]);        
 
         
@@ -46,13 +46,13 @@ class CubeController extends Controller
 
             # verificar que el dato de  entrada sea Numero
             # llamando la funcion validate
-             $result = $this->validate( $request->all() );
+             $result = $this->validate__( $request->all() );
 
              #si la validacion detecta un error en los datos devuelve mensajes
              if( $result->fails() ){
 
                 
-                return response()->json( array('message' => 'La entrada no tiene el formato correcto'  ); );
+                return response()->json( array('message' => 'La entrada no tiene el formato correcto'  ) );
                 
              }
 
