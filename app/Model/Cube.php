@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Model;
 
 class Cube{
 
@@ -11,6 +11,7 @@ class Cube{
 	const MAX_SIZE = 100;
 
 	public function __construct($size, $value = 0){
+		
 		if($size > self::MAX_SIZE){
 			throw new \Exception(sprintf("Size should be equal or less than %d", self::MAX_SIZE));
 			

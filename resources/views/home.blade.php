@@ -89,9 +89,9 @@
                                     
                                     <div class="form-group">
                                         
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                         
-                                        <button type="button" class="btn btn-primary"
+                                        <button type="button" class="btn btn-primary btn-block"
                                         ng-model="value"
                                         ng-click="add_matrix(value)">Next</button>
                                         
@@ -105,20 +105,6 @@
                             </form>
                                 
 
-                        <div ng-repeat="operation in value.operations track by $index">
-
-                            <label > Operation </label>
-                            
-                            <select ng-model="operation.operation_name" required="true">
-                                <option value="query">QUERY</option>
-                                <option value="update">UPDATE</option>
-                            </select>
-
-                            <label > Parameters </label>
-                            
-                            <input type="text" ng-model="operation.params" required="true" />
-                        
-                        </div>
 
                         <div ng-repeat="(key_num , el) in value.query track by $index" >
                             
