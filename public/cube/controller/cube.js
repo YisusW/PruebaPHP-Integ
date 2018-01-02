@@ -13,9 +13,7 @@ app.controller("cubeController", function($scope, $http, ROUTE, $sce){
 		
 		for(var i = 0 ; i < $scope.number_cases ; i ++ ){
 
-			//$scope.form_case.push({m_n: null, n: null, operations: []})
-
-			$scope.form_case.push( {m_n: null, n: null, query: []} )
+			$scope.form_case.push( { query: []} )
 
 		}
 
@@ -49,7 +47,7 @@ app.controller("cubeController", function($scope, $http, ROUTE, $sce){
 			
 			function(response){
 
-$scope.output = $sce.trustAsHtml(response.output.replace(/,/g, "<br/>"))
+				$scope.output = $sce.trustAsHtml(response.output.replace(/,/g, "<br/>"))
 				console.log( response.replace(/,/g, "<br/>") )
 				console.log( $scope.output );
 				//$scope.output = $sce.trustAsHtml(response.output.replace(/,/g, "<br/>"));

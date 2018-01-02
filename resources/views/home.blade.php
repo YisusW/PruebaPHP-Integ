@@ -149,6 +149,8 @@
                     </div>
 
 
+
+
                 </div> {{-- class="row" ng-controller="cubeController"  --}}
 
                 </div> {{-- ng-app="cubeSumation" class="panel-body" --}}
