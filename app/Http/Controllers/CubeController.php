@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use App\Model\Cube;
 
 class CubeController extends Controller
 {
+
+    protected $cube;
+
     /**
      * Create a new controller instance.
      *
@@ -14,6 +18,7 @@ class CubeController extends Controller
      */
     public function __construct()
     {
+       $this->cube = new Cube();
        
     }
 
