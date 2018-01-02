@@ -17,6 +17,8 @@ app.controller("cubeController", function($scope, $http, ROUTE, $sce){
 
 		}
 
+		$scope.result = '';
+
 	}
 
 	// add_matrix se encarga de agregar los campos para 
@@ -36,6 +38,8 @@ app.controller("cubeController", function($scope, $http, ROUTE, $sce){
 
 		}
 
+
+
 	}
 
 
@@ -45,6 +49,7 @@ app.controller("cubeController", function($scope, $http, ROUTE, $sce){
 
 	$scope.send_data = function(){
 
+		console.log( $scope.form_case );
 
 		$http.post(ROUTE, { "formdata" : $scope.form_case}).success(
 			

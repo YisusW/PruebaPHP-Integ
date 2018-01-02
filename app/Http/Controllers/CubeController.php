@@ -40,7 +40,7 @@ class CubeController extends Controller
 
                 if( isset($datos->matrix ) ){
 
-                    $result = $this->run_queries( $datos , (int) $key+1 );
+                    $result[] = $this->run_queries( $datos , (int) $key+1 );
                 }
 
             }
@@ -59,7 +59,7 @@ class CubeController extends Controller
 
         $this->cube = new Cube( $datos->matrix );
 
-        $result =  array( 'T' => $numer_t ) ;
+        $result =  array( 'T' => 'T # '.$numer_t ) ;
 
         # Ahora se recorre otra variable que tambien es un Arreglo
         # *(query) contiene los atributos : ( query_name , dats )

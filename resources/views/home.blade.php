@@ -41,11 +41,11 @@
                         
                         <ul ng-repeat="(key , el) in result" class="well">
                             
-                            <strong> T # @{{ el.T }} </strong>
+                            <strong> @{{ el[0].T }} </strong>
                             
                             <li  ng-repeat=' value in el track by $index ' >
 
-                            @{{ ( value.indexOf(T) === 'T' ? value : '---' ) }}
+                            @{{ value[$index] }}
                             
                             </li>
 
