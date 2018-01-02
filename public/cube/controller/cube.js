@@ -17,6 +17,7 @@ app.controller("cubeController", function($scope, $http, ROUTE, $sce){
 
 		}
 
+		// limpiar el resultado de la ultima operacion
 		$scope.result = '';
 
 	}
@@ -56,9 +57,8 @@ app.controller("cubeController", function($scope, $http, ROUTE, $sce){
 			function(response){
 				
 				console.log( response );
-				//$scope.output = $sce.trustAsHtml(response.output.replace(/,/g, "<br/>"));
 
-				$scope.result = response;
+				$scope.result = response ;
 			});		
 	}
 

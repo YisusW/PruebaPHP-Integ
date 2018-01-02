@@ -40,6 +40,10 @@ class CubeController extends Controller
 
                 if( isset($datos->matrix ) ){
 
+                    # Funcion que se encarga de pasar los datos a la clase
+                    # para dar a procesar los parametros y operaciones
+                    # su retorno se guardara en la variable tipo array $result
+
                     $result[] = $this->run_queries( $datos , (int) $key+1 );
                 }
 
@@ -54,6 +58,18 @@ class CubeController extends Controller
 
     /*=====  End of store ======*/
 
+    /*===================================
+    =            run_queries la funcion =
+    =  que se comunica con la clase Cube=
+    ===================================*/
+
+
+    /**
+     * .
+     * @param  $datos , $numer_t
+     *      
+     * @return result
+     */ 
 
     private function run_queries ( $datos , $numer_t ){
 
@@ -96,5 +112,7 @@ class CubeController extends Controller
 
         return $result;
     }
+
+    /*=====  End of run_queries  ======*/    
 
 }

@@ -39,15 +39,17 @@
                         <legend> Sample Output </legend>
 
                         
-                        <ul ng-repeat="(key , el) in result" class="well">
+                        <ul ng-repeat=" el in result track by $index" class="well">
                             
-                            <strong> @{{ el[0].T }} </strong>
-                            
-                            <li  ng-repeat=' value in el track by $index ' >
+                            <div  ng-repeat=' value in el  ' >
 
-                            @{{ value[$index] }}
-                            
+                            @{{ value.T }}
+
+                            <li ng-repeat=' bit in value ' >
+                                @{{ ( bit === value.T ) ? ' end '+bit : bit }}
                             </li>
+                            
+                            </div>
 
                         </ul>
 
@@ -81,6 +83,8 @@
                                                     class="form-control"
                                                     id="n_matrix@{{key}}"
                                                     autofocus
+                                                    max="100" 
+                                                    min="1" 
                                                     ng-model="value.matrix">
                                         
                                         </div> {{-- class="form-group" --}}
@@ -98,6 +102,8 @@
                                             <input  type="number"
                                                     class="form-control"
                                                     id="n_queries@{{ key }}"
+                                                    max="1000"
+                                                    min="1" 
                                                     ng-model="value.queries">
                                         
                                         </div>{{-- class="form-group"  --}}
