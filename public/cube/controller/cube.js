@@ -19,8 +19,11 @@ app.controller("cubeController", function($scope, $http, ROUTE, $sce){
 
 	}
 
-
-
+	// add_matrix se encarga de agregar los campos para 
+	// queries y parametros 
+	// Segun la variable *( value_matrix_queries.queries ) esa contiene un valor numerico
+	// que es la Constrain M ; para saber cuantas operaciones se realizaran 
+ 
 	$scope.add_matrix = function ( value_matrix_queries ){
 
 		console.log( value_matrix_queries );
@@ -46,13 +49,11 @@ app.controller("cubeController", function($scope, $http, ROUTE, $sce){
 		$http.post(ROUTE, { "formdata" : $scope.form_case}).success(
 			
 			function(response){
-
-				$scope.output = $sce.trustAsHtml(response.output.replace(/,/g, "<br/>"))
-				console.log( response.replace(/,/g, "<br/>") )
-				console.log( $scope.output );
+				
+				console.log( response );
 				//$scope.output = $sce.trustAsHtml(response.output.replace(/,/g, "<br/>"));
 
-
+				$scope.result = response;
 			});		
 	}
 

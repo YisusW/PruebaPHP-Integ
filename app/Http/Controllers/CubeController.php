@@ -29,8 +29,7 @@ class CubeController extends Controller
         $result  = null;
 
 
-
-            foreach($request->input('formdata') as  $datos){
+            foreach($request->input('formdata') as $key => $datos){
                 # parsear el array a un tipo object (transformar tipo de dato)
                 $datos = (object) $datos;
 
@@ -41,7 +40,7 @@ class CubeController extends Controller
 
                 if( isset($datos->matrix ) ){
 
-                    $result = $this->run_queries( $datos );
+                    $result = $this->run_queries( $datos , (int) $key+1 );
                 }
 
             }
@@ -56,11 +55,11 @@ class CubeController extends Controller
     /*=====  End of store ======*/
 
 
-    private function run_queries ( $datos ){
+    private function run_queries ( $datos , $numer_t ){
 
         $this->cube = new Cube( $datos->matrix );
 
-        $result = null ;
+        $result =  array( 'T' => $numer_t ) ;
 
         # Ahora se recorre otra variable que tambien es un Arreglo
         # *(query) contiene los atributos : ( query_name , dats )
@@ -84,7 +83,7 @@ class CubeController extends Controller
 
                 # si el query_name es query llamamos a la funcion query de la clase instanciada abteriormente
 
-                $result .= $this->cube->query($params[0], $params[1], $params[2], $params[3], $params[4], $params[5]) . ",";
+                $result[] = $this->cube->query($params[0], $params[1], $params[2], $params[3], $params[4], $params[5]);
 
             elseif( $queries->query_name === 'update' ):
 

@@ -18,7 +18,7 @@
                         
                         <div class="form-group">
 
-                        <label id="testCase">Constrain T</label>
+                        <label >Constrain T</label>
 
                         <input class="form-control" type="number" 
                         min="1" max="50"    
@@ -34,7 +34,24 @@
                             Send Data </btn>
                         </div>
 
-                    
+                    <fieldset class="form-group">
+
+                        <legend> Sample Output </legend>
+
+                        
+                        <ul ng-repeat="(key , el) in result" class="well">
+                            
+                            <strong> T # @{{ el.T }} </strong>
+                            
+                            <li  ng-repeat=' value in el track by $index ' >
+
+                            @{{ ( value.indexOf(T) === 'T' ? value : '---' ) }}
+                            
+                            </li>
+
+                        </ul>
+
+                    </fieldset>
 
                     <!-- Codigo donde 
                         agregan los parametros para 
@@ -147,9 +164,6 @@
 
                         
                     </div>
-
-
-
 
                 </div> {{-- class="row" ng-controller="cubeController"  --}}
 

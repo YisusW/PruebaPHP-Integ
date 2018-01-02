@@ -11,7 +11,7 @@ class Cube{
 	const MAX_SIZE = 100;
 
 	public function __construct($size, $value = 0){
-		
+
 		if($size > self::MAX_SIZE){
 			throw new \Exception(sprintf("Size should be equal or less than %d", self::MAX_SIZE));
 			
@@ -60,8 +60,11 @@ class Cube{
 
 		// sumarize all elements in sub cube
 		for($i = $x1; $i <= $x2; $i++){
+
 			for($j = $y1; $j <= $y2; $j++){
+
 				for($k = $z1; $k <= $z2; $k++){
+					
 					$sum += $this->cube[$i][$j][$k];
 				}
 			}
@@ -92,6 +95,7 @@ class Cube{
 	 * Validate if -10^9 <= $value <= 10^9
 	 */
 	private function is_valid_value($value){
+
 		return (self::MIN_VALUE <= $value) && (self::MAX_VALUE <= pow(10, 9));
 	}
 
@@ -103,8 +107,11 @@ class Cube{
 	 *
 	 */
 	private function is_valid_range_coordinates($x1, $y1, $z1, $x2, $y2, $z2){
+		
 		return 	$this->is_valid_coordinate($x1, $y1, $z1) &&
+				
 				$this->is_valid_coordinate($x2, $y2, $z2) && 
+				
 				$x1 <= $x2 && $y1 <= $y2 && $z1 <= $z2;
 	}
 }
